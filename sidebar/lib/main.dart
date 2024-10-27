@@ -11,7 +11,7 @@ class MyPortfolioApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'My Portfolio',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primaryColor: const Color.fromARGB(255, 16, 131, 119),
       ),
       home: PortfolioPage(),
     );
@@ -28,7 +28,7 @@ class PortfolioPage extends StatelessWidget {
           drawer: isDesktop
               ? null
               : Drawer(
-                  child: SidebarContent(),
+                  child: SidebarContent(isDesktop: isDesktop),
                 ),
           body: Row(
             children: [
@@ -37,7 +37,7 @@ class PortfolioPage extends StatelessWidget {
                 Container(
                   width: 250,
                   color: Colors.teal[700],
-                  child: SidebarContent(),
+                  child: SidebarContent(isDesktop: isDesktop),
                 ),
               // Main Content
               Expanded(
@@ -103,13 +103,17 @@ class PortfolioPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors
+                                      .teal[900], // Warna teks yang lebih jelas
                                 ),
                               ),
                               SizedBox(height: 16),
                               Text(
                                 'Hello! I am Ni Made Rai Ardia Anggreni (42230019).',
                                 style: TextStyle(
-                                    fontSize: 18, color: Colors.grey[800]),
+                                  fontSize: 18,
+                                  color: Colors.grey[800],
+                                ),
                               ),
                               Divider(),
                               // Projects Section
@@ -118,14 +122,15 @@ class PortfolioPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors
+                                      .teal[900], // Warna teks yang lebih jelas
                                 ),
                               ),
                               SizedBox(height: 16),
                               Wrap(
                                 spacing: 16,
                                 runSpacing: 16,
-                                children: [
-                                ],
+                                children: [],
                               ),
                               Divider(),
                               // Contact Section
@@ -134,6 +139,8 @@ class PortfolioPage extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors
+                                      .teal[900], // Warna teks yang lebih jelas
                                 ),
                               ),
                             ],
@@ -154,8 +161,14 @@ class PortfolioPage extends StatelessWidget {
 
 // Sidebar Content
 class SidebarContent extends StatelessWidget {
+  final bool isDesktop;
+  SidebarContent({required this.isDesktop});
+
   @override
   Widget build(BuildContext context) {
+    // Tentukan warna teks berdasarkan ukuran layar
+    Color textColor = isDesktop ? Colors.white : Colors.black;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -166,16 +179,16 @@ class SidebarContent extends StatelessWidget {
           child: Text(
             'My Portfolio',
             style: TextStyle(
-              color: const Color.fromARGB(255, 0, 146, 58),
+              color: textColor, // Warna teks dinamis
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
         Divider(color: Colors.white54),
-        NavButton(label: 'About Me', onTap: () {}),
-        NavButton(label: 'Projects', onTap: () {}),
-        NavButton(label: 'Contact', onTap: () {}),
+        NavButton(label: 'About Me', onTap: () {}, textColor: textColor),
+        NavButton(label: 'Projects', onTap: () {}, textColor: textColor),
+        NavButton(label: 'Contact', onTap: () {}, textColor: textColor),
       ],
     );
   }
@@ -185,8 +198,10 @@ class SidebarContent extends StatelessWidget {
 class NavButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
+  final Color textColor;
 
-  NavButton({required this.label, required this.onTap});
+  NavButton(
+      {required this.label, required this.onTap, required this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -198,7 +213,10 @@ class NavButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
           child: Text(
             label,
-            style: TextStyle(color: const Color.fromARGB(255, 1, 63, 33), fontSize: 18),
+            style: TextStyle(
+              color: textColor, // Warna teks dinamis
+              fontSize: 18,
+            ),
           ),
         ),
       ),
@@ -230,6 +248,7 @@ class ProjectCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: Colors.teal[900],
               ),
             ),
             SizedBox(height: 8),
