@@ -107,8 +107,7 @@ class PortfolioPage extends StatelessWidget {
                               ),
                               SizedBox(height: 16),
                               Text(
-                                'Hello! I am [Your Name], a passionate developer with experience in Flutter, Web Development, and UI/UX Design. '
-                                'I love creating beautiful and functional applications that solve real-world problems.',
+                                'Hello! I am Ni Made Rai Ardia Anggreni (42230019).',
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.grey[800]),
                               ),
@@ -126,18 +125,6 @@ class PortfolioPage extends StatelessWidget {
                                 spacing: 16,
                                 runSpacing: 16,
                                 children: [
-                                  ProjectCard(
-                                    title: 'Project 1',
-                                    description: 'Description of Project 1.',
-                                  ),
-                                  ProjectCard(
-                                    title: 'Project 2',
-                                    description: 'Description of Project 2.',
-                                  ),
-                                  ProjectCard(
-                                    title: 'Project 3',
-                                    description: 'Description of Project 3.',
-                                  ),
                                 ],
                               ),
                               Divider(),
