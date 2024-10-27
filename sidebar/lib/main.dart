@@ -136,24 +136,6 @@ class PortfolioPage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(height: 16),
-                              Text(
-                                'Feel free to reach out if you have any questions or if you are interested in working together!',
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.grey[800]),
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'Email: your.email@example.com',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.teal),
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'LinkedIn: linkedin.com/in/yourprofile',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.teal),
-                              ),
                             ],
                           ),
                         ),
